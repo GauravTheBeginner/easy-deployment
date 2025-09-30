@@ -78,7 +78,7 @@ This project uses **Django**, **Celery**, **Redis**, **GitPython**, and **boto3*
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/GauravTheBeginner/easy-deploy.git
+git clone https://github.com/GauravTheBeginner/easy-deployment.git
 cd easy-deploy
 ```
 
