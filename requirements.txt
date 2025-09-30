@@ -1,0 +1,9 @@
+django
+celery
+redis
+boto3
+gitpython
+djangorestframework
+djoser
+djangorestframework-simplejwt
+gunicorn

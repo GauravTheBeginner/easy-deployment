@@ -1,0 +1,113 @@
+{
+  "info": {
+    "_postman_id": "vercel-clone-collection",
+    "name": "Vercel Clone API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"yourpassword\"\n}"
+        },
+        "url": { "raw": "{{base_url}}/auth/users/", "host": ["{{base_url}}"], "path": ["auth", "users", ""] }
+      }
+    },
+    {
+      "name": "Login (Get JWT Token)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"yourpassword\"\n}"
+        },
+        "url": { "raw": "{{base_url}}/auth/jwt/create/", "host": ["{{base_url}}"], "path": ["auth", "jwt", "create", ""] }
+      }
+    },
+    {
+      "name": "Get Current User Info",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": { "raw": "{{base_url}}/auth/users/me/", "host": ["{{base_url}}"], "path": ["auth", "users", "me", ""] }
+      }
+    },
+    {
+      "name": "Create Project (Clone Repo)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user\": \"{{user_id}}\",\n  \"repo_url\": \"https://github.com/example/repo.git\"\n}"
+        },
+        "url": { "raw": "{{base_url}}/api/projects/deploy/", "host": ["{{base_url}}"], "path": ["api", "projects", "deploy", ""] }
+      }
+    },
+    {
+      "name": "List Projects",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": { "raw": "{{base_url}}/api/projects/deploy/", "host": ["{{base_url}}"], "path": ["api", "projects", "deploy", ""] }
+      }
+    },
+    {
+      "name": "Retrieve Project",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": { "raw": "{{base_url}}/api/projects/deploy/{{project_id}}/", "host": ["{{base_url}}"], "path": ["api", "projects", "deploy", "{{project_id}}", ""] }
+      }
+    },
+    {
+      "name": "Update Project",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Updated Project Name\"\n}"
+        },
+        "url": { "raw": "{{base_url}}/api/projects/deploy/{{project_id}}/", "host": ["{{base_url}}"], "path": ["api", "projects", "deploy", "{{project_id}}", ""] }
+      }
+    },
+    {
+      "name": "Delete Project",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{access_token}}" }
+        ],
+        "url": { "raw": "{{base_url}}/api/projects/deploy/{{project_id}}/delete/", "host": ["{{base_url}}"], "path": ["api", "projects", "deploy", "{{project_id}}", "delete", ""] }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8000" },
+    { "key": "access_token", "value": "" },
+    { "key": "user_id", "value": "" },
+    { "key": "project_id", "value": "" }
+  ]
+}
